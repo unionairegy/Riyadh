@@ -609,6 +609,107 @@
     margin-top:12px;
   }
 }
+
+
+/* STATIC HERO GALLERY - replaces carousel for reliability and conversion */
+.hero-card{
+  padding:14px !important;
+  overflow:visible !important;
+}
+
+.hero-gallery{
+  display:grid;
+  grid-template-columns:1.45fr .75fr;
+  gap:14px;
+  width:100%;
+}
+
+.hero-gallery-main,
+.gallery-mini{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  border:1px solid var(--line);
+  background:#eef8ff;
+}
+
+.hero-gallery-main svg{
+  width:100%;
+  height:100%;
+  min-height:410px;
+  object-fit:cover;
+}
+
+.hero-gallery-side{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:14px;
+}
+
+.gallery-mini{
+  min-height:198px;
+}
+
+.gallery-mini svg{
+  width:100%;
+  height:100%;
+  min-height:198px;
+}
+
+.gallery-badge,
+.gallery-mini-title{
+  position:absolute;
+  z-index:3;
+  top:14px;
+  right:14px;
+  background:rgba(255,255,255,.95);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:9px 12px;
+  color:var(--dark);
+  font-weight:900;
+  box-shadow:0 8px 18px rgba(11,95,168,.08);
+}
+
+.gallery-mini-title{
+  font-size:13px;
+  padding:7px 10px;
+}
+
+@media(max-width:800px){
+  .hero-gallery{
+    grid-template-columns:1fr;
+  }
+
+  .hero-gallery-side{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:none;
+  }
+
+  .hero-gallery-main svg{
+    min-height:320px;
+  }
+
+  .gallery-mini,
+  .gallery-mini svg{
+    min-height:165px;
+  }
+}
+
+@media(max-width:560px){
+  .hero-gallery-side{
+    grid-template-columns:1fr;
+  }
+
+  .hero-gallery-main svg{
+    min-height:275px;
+  }
+
+  .gallery-mini,
+  .gallery-mini svg{
+    min-height:155px;
+  }
+}
 </style>
 <script type="application/ld+json">
   {
@@ -666,172 +767,95 @@
 <a class="btn btn-call" href="tel:+966565929731">📞 اتصل الآن 0565929731</a>
 <a class="btn btn-wa" href="https://wa.me/966565929731?text=مرحبا، عندي مشكلة في التكييف أو الكهرباء وأريد حجز خدمة" rel="noopener" target="_blank">أرسل المشكلة على واتساب</a>
 </div><div class="hero-card">
-<div class="hero-slider" id="heroSlider">
-<div class="slides" id="heroSlides">
-<div class="slide active">
-<div class="slide-label">تركيب تكييفات</div>
-<svg aria-label="تركيب تكييف" viewbox="0 0 760 420">
+<div class="hero-gallery">
+<div class="hero-gallery-main">
+<div class="gallery-badge">تركيب وصيانة تكييفات</div>
+<svg aria-label="فني تركيب وصيانة تكييف" viewbox="0 0 900 500">
 <defs>
-<lineargradient id="sbg1" x1="0" x2="1" y1="0" y2="1">
-<stop offset="0%" stop-color="#eef8ff"></stop>
+<lineargradient id="heroBg" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#edf8ff"></stop>
 <stop offset="100%" stop-color="#d8edfc"></stop>
 </lineargradient>
-<lineargradient id="shirt1" x1="0" x2="1" y1="0" y2="1">
-<stop offset="0%" stop-color="#1584d7"></stop>
+<lineargradient id="techShirt" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#1483d6"></stop>
 <stop offset="100%" stop-color="#0b5fa8"></stop>
 </lineargradient>
 </defs>
-<rect fill="url(#sbg1)" height="420" width="760"></rect>
-<circle cx="665" cy="70" fill="#ffffff" opacity=".55" r="52"></circle>
-<circle cx="105" cy="360" fill="#ffffff" opacity=".45" r="65"></circle>
-<!-- room wall/ac -->
-<rect fill="#ffffff" height="108" rx="18" stroke="#caddea" stroke-width="3" width="285" x="365" y="58"></rect>
-<rect fill="#dbe7ee" height="8" rx="4" width="225" x="396" y="120"></rect>
-<rect fill="#dbe7ee" height="6" rx="3" width="225" x="396" y="137"></rect>
-<circle cx="615" cy="80" fill="#31b56f" r="6"></circle>
-<path d="M420 166 C435 210, 435 240, 420 278" fill="none" stroke="#72c7ff" stroke-linecap="round" stroke-width="7"></path>
-<path d="M500 166 C515 210, 515 240, 500 278" fill="none" stroke="#72c7ff" stroke-linecap="round" stroke-width="7"></path>
+<rect fill="url(#heroBg)" height="500" rx="28" width="900"></rect>
+<circle cx="785" cy="85" fill="#fff" opacity=".52" r="58"></circle>
+<circle cx="100" cy="420" fill="#fff" opacity=".42" r="85"></circle>
+<!-- wall -->
+<rect fill="#fff" height="125" rx="22" stroke="#cfe0eb" stroke-width="3" width="330" x="480" y="62"></rect>
+<rect fill="#dbe7ee" height="9" rx="4.5" width="250" x="518" y="133"></rect>
+<rect fill="#dbe7ee" height="7" rx="3.5" width="250" x="518" y="153"></rect>
+<circle cx="765" cy="87" fill="#32b571" r="7"></circle>
+<!-- airflow -->
+<path d="M540 190 C558 235 558 275 540 315" fill="none" stroke="#68c2ff" stroke-linecap="round" stroke-width="8"></path>
+<path d="M620 190 C638 235 638 275 620 315" fill="none" stroke="#68c2ff" stroke-linecap="round" stroke-width="8"></path>
+<path d="M700 190 C718 235 718 275 700 315" fill="none" stroke="#68c2ff" stroke-linecap="round" stroke-width="8"></path>
 <!-- ladder -->
-<g transform="translate(300,140)">
-<rect fill="#7a8e9b" height="195" rx="5" width="10" x="0" y="0"></rect>
-<rect fill="#7a8e9b" height="195" rx="5" width="10" x="58" y="0"></rect>
-<rect fill="#9eb1bc" height="8" rx="4" width="58" x="5" y="25"></rect>
-<rect fill="#9eb1bc" height="8" rx="4" width="58" x="5" y="62"></rect>
-<rect fill="#9eb1bc" height="8" rx="4" width="58" x="5" y="99"></rect>
-<rect fill="#9eb1bc" height="8" rx="4" width="58" x="5" y="136"></rect>
+<g transform="translate(410,165)">
+<rect fill="#788d9b" height="230" rx="5" width="11" x="0" y="0"></rect>
+<rect fill="#788d9b" height="230" rx="5" width="11" x="68" y="0"></rect>
+<rect fill="#a0b3be" height="9" rx="4.5" width="67" x="6" y="35"></rect>
+<rect fill="#a0b3be" height="9" rx="4.5" width="67" x="6" y="80"></rect>
+<rect fill="#a0b3be" height="9" rx="4.5" width="67" x="6" y="125"></rect>
+<rect fill="#a0b3be" height="9" rx="4.5" width="67" x="6" y="170"></rect>
 </g>
 <!-- technician -->
-<g transform="translate(176,120)">
-<ellipse cx="130" cy="245" fill="#bedef3" opacity=".75" rx="130" ry="22"></ellipse>
-<circle cx="135" cy="52" fill="#e8ba90" r="36"></circle>
-<path d="M102 45 Q135 18 168 45 L162 27 Q135 7 108 27Z" fill="#173b59"></path>
-<rect fill="url(#shirt1)" height="110" rx="28" width="100" x="84" y="92"></rect>
-<rect fill="#fff" height="24" opacity=".97" rx="7" width="56" x="105" y="111"></rect>
-<path d="M98 132 Q50 150 30 189" fill="none" stroke="#e8ba90" stroke-linecap="round" stroke-width="17"></path>
-<path d="M172 128 Q216 100 236 71" fill="none" stroke="#e8ba90" stroke-linecap="round" stroke-width="17"></path>
-<path d="M113 198 L104 282" stroke="#173b59" stroke-linecap="round" stroke-width="22"></path>
-<path d="M156 198 L167 282" stroke="#173b59" stroke-linecap="round" stroke-width="22"></path>
-<g transform="translate(231,60) rotate(18)">
-<rect fill="#6a7f8d" height="68" rx="5" width="10" x="0" y="0"></rect>
-<rect fill="#e4574d" height="20" rx="5" width="30" x="-10" y="-15"></rect>
+<g transform="translate(165,145)">
+<ellipse cx="145" cy="285" fill="#bddff3" opacity=".74" rx="145" ry="26"></ellipse>
+<circle cx="145" cy="58" fill="#e9ba90" r="43"></circle>
+<path d="M106 51 Q145 18 184 51 L177 30 Q145 8 113 30Z" fill="#173b59"></path>
+<rect fill="url(#techShirt)" height="136" rx="36" width="124" x="84" y="110"></rect>
+<rect fill="#fff" height="29" opacity=".97" rx="8" width="68" x="112" y="132"></rect>
+<path d="M100 150 Q42 176 20 220" fill="none" stroke="#e9ba90" stroke-linecap="round" stroke-width="20"></path>
+<path d="M198 150 Q248 118 276 78" fill="none" stroke="#e9ba90" stroke-linecap="round" stroke-width="20"></path>
+<path d="M118 242 L106 340" stroke="#173b59" stroke-linecap="round" stroke-width="26"></path>
+<path d="M172 242 L186 340" stroke="#173b59" stroke-linecap="round" stroke-width="26"></path>
+<g transform="translate(270,69) rotate(17)">
+<rect fill="#687e8c" height="82" rx="5.5" width="11" x="0" y="0"></rect>
+<rect fill="#e4574d" height="22" rx="6" width="35" x="-12" y="-17"></rect>
 </g>
 </g>
-<!-- floor card -->
-<rect fill="#ffffff" height="58" opacity=".92" rx="15" stroke="#d9e6ef" width="192" x="392" y="302"></rect>
-<circle cx="420" cy="331" fill="#0b5fa8" r="12"></circle>
-<path d="M420 319v24M408 331h24" stroke="#fff" stroke-linecap="round" stroke-width="3.5"></path>
-<rect fill="#dbe7ee" height="8" rx="4" width="112" x="440" y="320"></rect>
-<rect fill="#dbe7ee" height="7" rx="3.5" width="80" x="440" y="336"></rect>
+<!-- small service strip -->
+<rect fill="#fff" height="72" opacity=".95" rx="18" stroke="#d7e5ee" width="275" x="505" y="360"></rect>
+<circle cx="540" cy="396" fill="#0b5fa8" r="18"></circle>
+<path d="M540 384v24M528 396h24" stroke="#fff" stroke-linecap="round" stroke-width="4"></path>
+<rect fill="#dbe7ee" height="10" rx="5" width="160" x="572" y="382"></rect>
+<rect fill="#e6eef4" height="8" rx="4" width="112" x="572" y="404"></rect>
 </svg>
 </div>
-<div class="slide">
-<div class="slide-label">تركيبات وأعطال الكهرباء</div>
-<svg aria-label="أعمال كهرباء" viewbox="0 0 760 420">
-<defs>
-<lineargradient id="sbg2" x1="0" x2="1" y1="0" y2="1">
-<stop offset="0%" stop-color="#f2f9ff"></stop>
-<stop offset="100%" stop-color="#e0f0fc"></stop>
-</lineargradient>
-<lineargradient id="shirt2" x1="0" x2="1" y1="0" y2="1">
-<stop offset="0%" stop-color="#1584d7"></stop>
-<stop offset="100%" stop-color="#0b5fa8"></stop>
-</lineargradient>
-</defs>
-<rect fill="url(#sbg2)" height="420" width="760"></rect>
-<circle cx="120" cy="80" fill="#ffffff" opacity=".5" r="48"></circle>
-<circle cx="680" cy="335" fill="#ffffff" opacity=".44" r="70"></circle>
-<!-- electric panel -->
-<g transform="translate(425,58)">
-<rect fill="#ffffff" height="250" rx="22" stroke="#caddea" stroke-width="3" width="210" x="0" y="0"></rect>
-<rect fill="#607d8b" height="48" rx="7" width="52" x="35" y="40"></rect>
-<rect fill="#607d8b" height="48" rx="7" width="52" x="122" y="40"></rect>
-<rect fill="#607d8b" height="38" rx="7" width="52" x="35" y="108"></rect>
-<rect fill="#607d8b" height="38" rx="7" width="52" x="122" y="108"></rect>
-<rect fill="#dbe7ee" height="22" rx="8" width="139" x="35" y="166"></rect>
-<circle cx="184" cy="28" fill="#31b56f" r="7"></circle>
-</g>
-<!-- lightning -->
-<path d="M320 56 L266 145 H309 L286 228 L382 111 H332 Z" fill="#f0b429" filter="drop-shadow(0 10px 20px rgba(240,180,41,.20))"></path>
-<!-- electrician -->
-<g transform="translate(140,128)">
-<ellipse cx="132" cy="235" fill="#c8e4f5" opacity=".72" rx="128" ry="22"></ellipse>
-<circle cx="132" cy="50" fill="#e8ba90" r="38"></circle>
-<path d="M98 44 Q132 14 166 44 L160 27 Q132 5 104 27Z" fill="#173b59"></path>
-<rect fill="url(#shirt2)" height="112" rx="30" width="104" x="82" y="90"></rect>
-<rect fill="#fff" height="24" opacity=".96" rx="7" width="60" x="104" y="109"></rect>
-<path d="M96 130 Q54 120 30 88" fill="none" stroke="#e8ba90" stroke-linecap="round" stroke-width="18"></path>
-<path d="M170 127 Q217 136 246 108" fill="none" stroke="#e8ba90" stroke-linecap="round" stroke-width="18"></path>
-<path d="M112 198 L102 282" stroke="#173b59" stroke-linecap="round" stroke-width="22"></path>
-<path d="M158 198 L170 282" stroke="#173b59" stroke-linecap="round" stroke-width="22"></path>
-<g transform="translate(12,73) rotate(-20)">
-<rect fill="#6c818f" height="66" rx="6" width="12" x="0" y="0"></rect>
-<rect fill="#e4574d" height="18" rx="5" width="34" x="-14" y="-14"></rect>
-</g>
-</g>
-<!-- info panel -->
-<rect fill="#ffffff" height="44" opacity=".94" rx="14" stroke="#d8e5ee" width="216" x="424" y="326"></rect>
-<circle cx="448" cy="348" fill="#f0b429" r="11"></circle>
-<path d="M448 342v12M442 348h12" stroke="#fff" stroke-linecap="round" stroke-width="3"></path>
-<rect fill="#dbe7ee" height="8" rx="4" width="132" x="468" y="341"></rect>
+<div class="hero-gallery-side">
+<div class="gallery-mini">
+<div class="gallery-mini-title">أعطال وتركيبات الكهرباء</div>
+<svg aria-label="أعمال كهرباء" viewbox="0 0 360 210">
+<rect fill="#eef8ff" height="210" rx="22" width="360"></rect>
+<rect fill="#fff" height="138" rx="18" stroke="#cfe0eb" stroke-width="3" width="118" x="42" y="38"></rect>
+<rect fill="#607d8b" height="34" rx="5" width="28" x="68" y="64"></rect>
+<rect fill="#607d8b" height="34" rx="5" width="28" x="108" y="64"></rect>
+<rect fill="#607d8b" height="34" rx="5" width="28" x="68" y="112"></rect>
+<rect fill="#607d8b" height="34" rx="5" width="28" x="108" y="112"></rect>
+<path d="M265 25 L205 105 H250 L225 184 L328 88 H278 Z" fill="#f0b429"></path>
 </svg>
 </div>
-<div class="slide">
-<div class="slide-label">صيانة وخدمة بالرياض</div>
-<svg aria-label="صيانة وخدمة بالرياض" viewbox="0 0 760 420">
-<defs>
-<lineargradient id="sbg3" x1="0" x2="1" y1="0" y2="1">
-<stop offset="0%" stop-color="#eef8ff"></stop>
-<stop offset="100%" stop-color="#ddecfb"></stop>
-</lineargradient>
-<lineargradient id="vanBlue" x1="0" x2="1" y1="0" y2="1">
-<stop offset="0%" stop-color="#1584d7"></stop>
-<stop offset="100%" stop-color="#0b5fa8"></stop>
-</lineargradient>
-</defs>
-<rect fill="url(#sbg3)" height="420" width="760"></rect>
-<circle cx="635" cy="70" fill="#fff" opacity=".52" r="55"></circle>
-<circle cx="120" cy="335" fill="#fff" opacity=".40" r="78"></circle>
-<!-- van -->
-<g transform="translate(110,180)">
-<rect fill="url(#vanBlue)" height="105" rx="22" width="300" x="0" y="54"></rect>
-<path d="M300 78 h66 l58 52 v29 h-124z" fill="#0a4c88"></path>
-<rect fill="#dbf0fd" height="30" rx="6" width="50" x="328" y="92"></rect>
-<rect fill="#ffffff" height="50" opacity=".97" rx="10" width="104" x="144" y="74"></rect>
-<circle cx="78" cy="164" fill="#23384a" r="32"></circle>
-<circle cx="315" cy="164" fill="#23384a" r="32"></circle>
-<circle cx="78" cy="164" fill="#b9cad5" r="14"></circle>
-<circle cx="315" cy="164" fill="#b9cad5" r="14"></circle>
-<circle cx="196" cy="99" fill="#eaf4fb" r="20"></circle>
-<path d="M196 81 C206 92 209 99 196 99 C189 95 189 87 196 81Z" fill="#0b5fa8"></path>
-<path d="M214 99 C203 110 196 112 196 99 C201 92 209 93 214 99Z" fill="#0b5fa8"></path>
-</g>
-<!-- ac and tools card -->
-<g transform="translate(448,78)">
-<rect fill="#ffffff" height="78" rx="16" stroke="#caddea" stroke-width="3" width="210" x="0" y="0"></rect>
-<rect fill="#dbe7ee" height="7" rx="3.5" width="160" x="22" y="48"></rect>
-<circle cx="178" cy="20" fill="#31b56f" r="5"></circle>
-<path d="M40 78 C48 108, 48 128, 40 147" fill="none" stroke="#72c7ff" stroke-linecap="round" stroke-width="6"></path>
-</g>
-<g transform="translate(474,192)">
-<rect fill="#ffffff" height="92" opacity=".95" rx="18" stroke="#d8e5ee" width="165" x="0" y="0"></rect>
-<circle cx="28" cy="28" fill="#0b5fa8" r="12"></circle>
-<path d="M28 20v16M20 28h16" stroke="#fff" stroke-linecap="round" stroke-width="3"></path>
-<rect fill="#dbe7ee" height="8" rx="4" width="84" x="50" y="23"></rect>
-<rect fill="#dbe7ee" height="7" rx="3.5" width="62" x="50" y="39"></rect>
-<rect fill="#eef6fb" height="10" rx="5" width="120" x="20" y="58"></rect>
-<rect fill="#eef6fb" height="8" rx="4" width="92" x="20" y="74"></rect>
+<div class="gallery-mini">
+<div class="gallery-mini-title">صيانة وتنظيف التكييف</div>
+<svg aria-label="صيانة وتنظيف تكييف" viewbox="0 0 360 210">
+<rect fill="#eef8ff" height="210" rx="22" width="360"></rect>
+<rect fill="#fff" height="76" rx="17" stroke="#cfe0eb" stroke-width="3" width="264" x="48" y="34"></rect>
+<rect fill="#dbe7ee" height="8" rx="4" width="207" x="75" y="81"></rect>
+<circle cx="277" cy="55" fill="#31b56f" r="5"></circle>
+<circle cx="160" cy="152" fill="#0b5fa8" r="43"></circle>
+<circle cx="160" cy="152" fill="#eaf5fd" r="16"></circle>
+<path d="M160 109 C181 130 187 151 160 152 C146 138 146 122 160 109Z" fill="#eaf5fd"></path>
+<path d="M203 152 C182 173 161 179 160 152 C174 138 190 138 203 152Z" fill="#eaf5fd"></path>
+<g transform="translate(260,128) rotate(-20)">
+<rect fill="#687e8d" height="62" rx="5.5" width="11" x="0" y="0"></rect>
+<rect fill="#e4574d" height="20" rx="5" width="31" x="-11" y="-15"></rect>
 </g>
 </svg>
 </div>
-</div>
-<div class="floating-box">
-            تكييف + كهرباء
-            <small>خدمة للمنازل والمكاتب والمحلات</small>
-</div>
-<div class="slider-dots">
-<button aria-label="slide 1" class="active" data-slide="0"></button>
-<button aria-label="slide 2" data-slide="1"></button>
-<button aria-label="slide 3" data-slide="2"></button>
 </div>
 </div>
 </div><div class="hero-note trust-strip">
@@ -840,9 +864,7 @@
 <div class="note"><b>كهرباء</b><span>قواطع، مفاتيح وبرايز وإنارة</span></div>
 <div class="note"><b>داخل الرياض</b><span>منازل ومكاتب ومحلات</span></div>
 </div>
-
 </div>
-
 </div>
 </section>
 <section class="problem-section" id="problems">
@@ -1221,44 +1243,6 @@
 <a class="btn btn-call" href="tel:+966565929731">اتصل الآن</a>
 <a class="btn btn-wa" href="https://wa.me/966565929731?text=مرحبا، عندي مشكلة في التكييف أو الكهرباء وأريد حجز خدمة" rel="noopener" target="_blank">أرسل المشكلة</a>
 </div>
-<script>
-(function(){
-  const slideItems = Array.from(document.querySelectorAll('#heroSlides .slide'));
-  const dots = Array.from(document.querySelectorAll('.slider-dots button'));
-  if(!slideItems.length || !dots.length) return;
 
-  let index = 0;
-  let timer;
-
-  function showSlide(i){
-    index = (i + slideItems.length) % slideItems.length;
-
-    slideItems.forEach((slide, idx)=>{
-      slide.classList.toggle('active', idx === index);
-    });
-
-    dots.forEach((dot, idx)=>{
-      dot.classList.toggle('active', idx === index);
-    });
-  }
-
-  function startAuto(){
-    clearInterval(timer);
-    timer = setInterval(()=>{
-      showSlide(index + 1);
-    }, 4200);
-  }
-
-  dots.forEach(dot=>{
-    dot.addEventListener('click', ()=>{
-      showSlide(Number(dot.dataset.slide));
-      startAuto();
-    });
-  });
-
-  showSlide(0);
-  startAuto();
-})();
-</script>
 </body>
 </html>
